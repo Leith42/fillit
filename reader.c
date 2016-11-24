@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/24 14:16:57 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/24 14:19:32 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_tetri *ft_stock(char *read) // Separe les tetrominos dans une liste
     tmp = piece;
     while(i > 0)
     {
-        tmp->str = ft_strndup(&read[b], 20);
+		tmp->str = ft_strndup(&read[b], 20);
 		tmp->letter = ++letter;
 		b += 21;
 		tmp->next = (t_tetri *)malloc(sizeof(t_tetri));
@@ -48,9 +48,9 @@ char    *ft_readfile(int fd) // Lit et stock le fichier dans une string
     i = 0;
     while(read(fd, &buff, 1))
     {
-        tmp[i] = buff;
-        if (i > 545)
-            ft_error(2);
+		tmp[i] = buff;
+		if (i > 545)
+			ft_error(2);
 		i++;
     }
     tmp[--i] = '\0'; // Temporaire, fix un bug avec deux tetris
