@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/24 14:07:50 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/24 14:16:57 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,4 @@ char    *ft_readfile(int fd) // Lit et stock le fichier dans une string
     tmp[--i] = '\0'; // Temporaire, fix un bug avec deux tetris
     close(fd);
     return (ft_strdup(tmp));
-}
-
-void    ft_error(int er) // Simple gestion d'erreur
-{
-    if (er == 1)
-        ft_putstr("error\n");
-	else if (er == 2)
-	{
-		ft_putstr("fillit: invalid operand\n");
-		ft_putstr("This program must take exactly one argument.\n");
-	}
-    exit(0);
 }
