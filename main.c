@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:50:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/24 14:08:00 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/28 14:39:06 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ int main(int argc, char const *argv[])
     char *read;
 
     if (argc != 2)
-        ft_error(2);
-    read = ft_readfile(open(argv[1], O_RDONLY));
-    piece = ft_stock(read);
+        quit(2);
+    read = read_file(open(argv[1], O_RDONLY));
+	piece = stock(read);
+    piece = split(piece);
 	/*while(piece->next)
 	{
-		puts(piece->str);
+		ft_putchar(piece->letter);
 		piece = piece->next;
 	}*/
     return (0);
