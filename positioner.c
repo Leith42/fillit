@@ -6,13 +6,13 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/28 15:08:24 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/28 21:04:45 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tetri	*tetri_position(t_tetri *piece, char **tab) // Stock la position de chaques tetrominos dans leurs maillons respectifs
+t_tetri	*tetri_position(t_tetri *piece, char **tab) // Stock la position initiale de chaques tetrominos dans leurs maillons respectifs
 {
 	size_t	i;
 	size_t	x;
