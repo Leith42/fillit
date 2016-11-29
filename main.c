@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:50:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/29 16:26:55 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/29 16:57:05 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void algo(t_tetri *piece);
 int main(int argc, char const *argv[])
 {
     t_tetri *piece;
-    char *read;
+    /*char *read;
 
     if (argc != 2)
         quit(2);
     read = read_file(open(argv[1], O_RDONLY));
 	piece = stock(read);
     piece = split(piece);
-	/*while(piece->next)
+	while(piece->next)
 	{
 		ft_putstr(piece->str);
 		piece = piece->next;
@@ -35,34 +35,23 @@ int main(int argc, char const *argv[])
 
 void algo(t_tetri *piece)
 {
-	char tab[500][500] = {};
+	char tab[300][300];
 	int y = 0;
 	int x = 0;
-	int	b = 0;
+	int	i = 0;
+	int j = 0;
 
-	while (piece->next)
+	while (y < 300)
 	{
-		b = 0;
-		while(b < 4)
+		x = 0;
+		while (x < 300)
 		{
-			tab[y][x] = piece->str[];
-			b++;
-			y++;
+			tab[y][x] = '.';
 			x++;
 		}
 		y++;
-		x++;
-		piece = piece->next;
 	}
-	y = 0;
-	while(tab[y])
-	{
-		b = 0;
-		while(tab[y][b])
-		{
-			ft_putchar(tab[y][b]);
-			b++;
-		}
-		y++;
-	}
+	printf("%c\n", tab[14][15]);
+	printf("%c\n", tab[100][150]);
+	printf("%c\n", tab[10][2]);
 }
