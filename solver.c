@@ -1,33 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 13:50:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/30 14:26:16 by aazri            ###   ########.fr       */
+/*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
+/*   Updated: 2016/11/30 14:28:22 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int main(int argc, char const *argv[])
+char	**fill_empty(char **tab, int sqrsize) // Remplis le tableau de points
 {
-    t_tetri *piece;
-    char *read;
-	char **tab = NULL;
+	int y;
+	int x;
 
-    if (argc != 2)
-        quit(2);
-    read = read_file(open(argv[1], O_RDONLY));
-	piece = stock(read);
-    piece = split(piece);
-	tab = fill_empty(tab, sqroot(tetri_counter(read) * 4));
-	while(*tab)
+	y = 0;
+	tab = (char **)malloc(sizeof(char *) * (sqrsize + 1));
+	while (y < sqrsize)
 	{
-		puts(*tab);
-		tab++;
+		tab[y] = ft_strnew(sqrsize);
+		x = 0;
+		while (x < sqrsize)
+		{
+			tab[y][x] = '.';
+			x++;
+		}
+		y++;
 	}
-    return (0);
+	tab[y] = NULL;
+	return (tab);
+}
+
+int	sqroot(int n) // Racine carrée
+{
+	int size;
+
+	size = 2;
+	while(size * size < n)
+		size++;
+	return (size);
 }

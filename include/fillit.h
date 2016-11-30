@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:31:13 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/28 14:39:21 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/30 14:23:53 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ typedef struct  s_tetri
 }               t_tetri;
 
 char    *read_file(int fd);
-int     tetri_counter(char *read);
+size_t     tetri_counter(char *read);
 t_tetri *stock(char *read);
 t_tetri	*split(t_tetri *piece);
 t_tetri	*tetri_position(t_tetri *piece, char **tab);
 void    quit(int error);
+int		sqroot(int n);
+char	**fill_empty(char **tab, int sqrsize);
 #endif

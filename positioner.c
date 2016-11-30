@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/28 21:04:45 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/30 12:50:54 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_tetri	*tetri_position(t_tetri *piece, char **tab) // Stock la position initial
 			{
 				piece->x[i] = x;
 				piece->y[i] = y;
-				printf("x %d | y %d\n", piece->x[i], piece->y[i]);
 				i++;
 			}
 			x++;

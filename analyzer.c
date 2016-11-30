@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/28 14:50:23 by aazri            ###   ########.fr       */
+/*   Updated: 2016/11/30 14:20:30 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ t_tetri *stock(char *read) // Separe les tetrominos dans une liste
 	return (piece);
 }
 
-int tetri_counter(char *read) // Compte le nombre de tetrominos dans le fichier
+size_t tetri_counter(char *read) // Compte le nombre de tetrominos dans le fichier
 {
-	int diese;
+	size_t diese;
 
 	diese = 0;
 	while (*read)
