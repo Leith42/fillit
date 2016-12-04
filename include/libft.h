@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 17:49:53 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/23 16:25:44 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/04 16:39:13 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 char			*ft_strndup(const char *src, int n);
+int				ft_sqroot(int n);
 
 #endif
