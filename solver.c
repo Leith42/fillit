@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/05 00:24:47 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/05 19:34:37 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,12 @@ char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par 
 
 char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en rÃ©cursif
 {
-	puts("START");
 	size_t x;
 	size_t y;
 	char **tmp;
 
 	if (!piece->next)
-	{
-		puts("END");
 		return (tab);
-	}
 	tmp = NULL;
 	y = 0;
 	while(y < sqrsize)
@@ -57,10 +53,7 @@ char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en rÃ
 				tmp = fill_tab(tab, piece, sqrsize);
 				tmp = solver(tab, piece->next, sqrsize);
 				if (tmp)
-				{
-					puts("IF");
 					return (tmp);
-				}
 			}
 			tab = retry(tab, piece->letter, sqrsize);
 			x++;
@@ -101,7 +94,8 @@ char	**fill_empty(char **tab, int sqrsize) // Remplis le tableau de points
 	size_t x;
 
 	y = 0;
-	tab = (char **)malloc(sizeof(char *) * (sqrsize + 1));
+	if(!(tab = (char **)malloc(sizeof(char *) * (sqrsize + 1))))
+		quit(ERROR);
 	while (y < sqrsize)
 	{
 		tab[y] = ft_strnew(sqrsize);

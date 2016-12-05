@@ -6,22 +6,20 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 14:17:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/05 00:51:42 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/05 19:03:41 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void    quit(int er) // Simple gestion d'erreur
+void    quit(int error) // Simple gestion d'erreur
 {
-	if (er == 1)
+	if (ERROR)
 		ft_putstr("error\n");
-	else if (er == 2)
+	else if (INVALID)
 	{
 		ft_putstr("fillit: invalid operand\n");
 		ft_putstr("This program must take exactly one argument.\n");
 	}
-	else if (er == 3)
-		ft_putstr("bad boy de marseille\n");
-	exit(false);
+	exit(FALSE);
 }

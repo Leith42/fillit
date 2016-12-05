@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/04 22:25:02 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/05 19:25:21 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la 
 			if (piece->x[check] == x && piece->y[check] == y)
 			{
 				if(tab[y][x] != '.')
-					return (false);
+					return (FALSE);
 				check++;
 			}
 			x++;
@@ -36,8 +36,8 @@ int	position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la 
 		y++;
 	}
 	if(check != 4)
-		return (false);
-	return (true);
+		return (FALSE);
+	return (TRUE);
 }
 
 t_tetri *stock_tetri(char *read) // Separe les tetrominos dans une liste
@@ -58,7 +58,8 @@ t_tetri *stock_tetri(char *read) // Separe les tetrominos dans une liste
 		tmp->str = ft_strndup(&read[pos], 20);
 		tmp->letter = letter++;
 		pos += 21;
-		tmp->next = (t_tetri *)malloc(sizeof(t_tetri));
+		if(!(tmp->next = (t_tetri *)malloc(sizeof(t_tetri))))
+			quit(ERROR);
 		tmp = tmp->next;
 		i--;
     }
@@ -68,16 +69,31 @@ t_tetri *stock_tetri(char *read) // Separe les tetrominos dans une liste
 
 size_t tetri_counter(char *read) // Compte le nombre de tetrominos dans le fichier
 {
-	size_t diese;
+	size_t hash;
 
-	diese = 0;
+ 	hash = 0;
 	while (*read)
 	{
 		if (*read == '#')
-			diese++;
+			hash++;
 		read++;
 	}
-	if (diese % 4 || diese < 4)
-		quit(1);
-	return (diese / 4);
+	if (hash % 4 || hash < 4)
+		quit(ERROR);
+	return (hash / 4);
+}
+
+void free_tetrominos(t_tetri *piece)
+{
+	t_tetri *list;
+	t_tetri *next;
+
+	list = piece;
+	while(list)
+	{
+		next = list->next;
+		free(list);
+		list = next;
+	}
+	piece = NULL;
 }
