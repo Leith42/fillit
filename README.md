@@ -1,5 +1,27 @@
-# fillit
+# fillit @ 42
+Can you feel it?
 
-42 Project
+Group project with [https://github.com/Marvel2002](mmatime)
 
-Fillit est un projet permettant de decouvrir et/ou de se familiariser avec une problematique récurrente en programmation : la recherche d’une solution optimale parmi un très grand nombre de possibilités, dans un délai raisonable. Dans le cas de ce projet, il s’agit d’agencer des Tetriminos entre eux et de déterminer le plus petit carré possible pouvant les acueillir.
+The purpose is to make the smallest possible "square" (which can contain holes) with a given list of
+tetriminos, but the disposition must be as such that it returns the first
+possible solution when placing them recursively from the top left.
+
+## Compiling
+Run `make`, an executable called `fillit` should compile directly. Please submit
+an issue if you run into any.
+
+## Usage
+`./fillit [file]`
+
+Example:
+```
+~ ./fillit samples/test_7
+
+AACCDD
+ABECDG
+ABECDG
+.BEFFG
+.BEF.G
+...F..
+```
