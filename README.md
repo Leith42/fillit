@@ -1,7 +1,7 @@
 # fillit @ 42
 Can you feel it?
 
-Group project with [https://github.com/Marvel2002](mmatime)
+Group project with [mmatime](https://github.com/Marvel2002)
 
 The purpose is to make the smallest possible "square" (which can contain holes) with a given list of
 tetriminos, but the disposition must be as such that it returns the first
