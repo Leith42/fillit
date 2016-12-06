@@ -1,5 +1,4 @@
 # fillit @ 42
-Can you feel it?
 
 Group project with [mmatime](https://github.com/Marvel2002)
 
@@ -16,7 +15,7 @@ an issue if you run into any.
 
 Example:
 ```
-~ ./fillit samples/test_7
+./fillit examples/test_7
 
 AACCDD
 ABECDG
