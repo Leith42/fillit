@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/24 14:17:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/05 19:03:41 by aazri            ###   ########.fr       */
+/*   Created: 2016/11/09 12:13:11 by aazri             #+#    #+#             */
+/*   Updated: 2016/11/16 20:32:47 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void    quit(int error) // Simple gestion d'erreur
+void	ft_striter(char *s, void (*f)(char *))
 {
-	if (ERROR)
-		ft_putstr("error\n");
-	else if (INVALID)
-	{
-		ft_putstr("fillit: invalid operand\n");
-		ft_putstr("This program must take exactly one argument.\n");
-	}
-	exit(FALSE);
+	while (s && *s)
+		f(s++);
 }

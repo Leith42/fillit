@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:31:13 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/05 18:38:59 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/06 14:02:26 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #define TRUE 1
 #define MAX_TETROMINOS 545
 enum {INVALID, ERROR};
+
 typedef struct  s_tetri
 {
     char    letter;
@@ -40,7 +41,7 @@ t_tetri	*stock_tetri(char *read);
 t_tetri	*stock_pos(t_tetri *piece);
 t_tetri	*tetri_initial_position(t_tetri *piece, char **tab);
 t_tetri	*tetri_new_position(t_tetri *piece, size_t x, size_t y);
-size_t	tetri_counter(char *read);
+int		tetri_counter(char *read);
 int		position_checker(char **tab, t_tetri *piece, int sqrsize);
 void	display_tab(char **tab);
 void	free_tetrominos(t_tetri *piece);

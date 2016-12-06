@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/05 19:25:21 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/06 14:01:08 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la position pour le tetromino entrant dans le tableau est prise
 {
-	size_t check;
-	size_t x;
-	size_t y;
+	int check;
+	int x;
+	int y;
 
 	check = 0;
 	y = 0;
@@ -67,9 +67,9 @@ t_tetri *stock_tetri(char *read) // Separe les tetrominos dans une liste
 	return (piece);
 }
 
-size_t tetri_counter(char *read) // Compte le nombre de tetrominos dans le fichier
+int tetri_counter(char *read) // Compte le nombre de tetrominos dans le fichier
 {
-	size_t hash;
+	int hash;
 
  	hash = 0;
 	while (*read)

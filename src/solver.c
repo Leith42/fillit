@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/05 19:34:37 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/06 13:58:56 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par des points
 {
-	size_t x;
-	size_t y;
+	int x;
+	int y;
 
 	y = 0;
 	while (y < sqrsize)
@@ -34,8 +34,8 @@ char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par 
 
 char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en r√©cursif
 {
-	size_t x;
-	size_t y;
+	int x;
+	int y;
 	char **tmp;
 
 	if (!piece->next)
@@ -65,9 +65,9 @@ char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en r√
 
 char	**fill_tab(char **tab, t_tetri *piece, int sqrsize) // Place le tetromino dans le tableau
 {
-	size_t i;
-	size_t x;
-	size_t y;
+	int i;
+	int x;
+	int y;
 
 	i = 0;
 	y = 0;
@@ -90,8 +90,8 @@ char	**fill_tab(char **tab, t_tetri *piece, int sqrsize) // Place le tetromino d
 
 char	**fill_empty(char **tab, int sqrsize) // Remplis le tableau de points
 {
-	size_t y;
-	size_t x;
+	int y;
+	int x;
 
 	y = 0;
 	if(!(tab = (char **)malloc(sizeof(char *) * (sqrsize + 1))))
