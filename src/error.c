@@ -6,13 +6,13 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 14:17:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 12:09:59 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 14:10:10 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void    quit(int error) // Simple gestion d'erreur
+void	quit(int error)// Simple gestion d'erreur
 {
 	if (error == ERROR)
 		ft_putstr("error\n");

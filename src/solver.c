@@ -6,13 +6,13 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/06 13:58:56 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 14:31:11 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par des points
+char	**retry(char **tab, char letter, int sqrsize)// Remplace le tetromino par des points
 {
 	int x;
 	int y;
@@ -21,7 +21,7 @@ char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par 
 	while (y < sqrsize)
 	{
 		x = 0;
-		while(x < sqrsize)
+		while (x < sqrsize)
 		{
 			if (tab[y][x] == letter)
 				tab[y][x] = '.';
@@ -34,18 +34,16 @@ char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par 
 
 char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en rÃ©cursif
 {
-	int x;
-	int y;
-	char **tmp;
+	int		x;
+	int		y;
+	char	**tmp;
 
-	if (!piece->next)
-		return (tab);
 	tmp = NULL;
 	y = 0;
-	while(y < sqrsize)
+	while (y < sqrsize)
 	{
 		x = 0;
-		while(x < sqrsize)
+		while (x < sqrsize)
 		{
 			piece = tetri_new_position(piece, x, y);
 			if (position_checker(tab, piece, sqrsize))
@@ -63,7 +61,7 @@ char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en rÃ
 	return (NULL);
 }
 
-char	**fill_tab(char **tab, t_tetri *piece, int sqrsize) // Place le tetromino dans le tableau
+char	**fill_tab(char **tab, t_tetri *piece, int sqrsize)// Place le tetromino dans le tableau
 {
 	int i;
 	int x;
@@ -74,9 +72,9 @@ char	**fill_tab(char **tab, t_tetri *piece, int sqrsize) // Place le tetromino d
 	while (y < sqrsize)
 	{
 		x = 0;
-		while(x < sqrsize)
+		while (x < sqrsize)
 		{
-			if(piece->x[i] == x && piece->y[i] == y)
+			if (piece->x[i] == x && piece->y[i] == y)
 			{
 				tab[y][x] = piece->letter;
 				i++;
@@ -94,7 +92,7 @@ char	**fill_empty(char **tab, int sqrsize) // Remplis le tableau de points
 	int x;
 
 	y = 0;
-	if(!(tab = (char **)malloc(sizeof(char *) * (sqrsize + 1))))
+	if (!(tab = (char **)malloc(sizeof(char *) * (sqrsize + 1))))
 		quit(ERROR);
 	while (y < sqrsize)
 	{

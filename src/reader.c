@@ -6,22 +6,22 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 12:07:04 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 14:10:58 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char    *read_file(int fd) // Lit et stock le fichier dans une string
+char	*read_file(int fd)// Lit et stock le fichier dans une string
 {
-	size_t  i;
-	char    tmp[MAX_TETROMINOS];
-	char    buff;
+	size_t	i;
+	char	tmp[MAX_TETROMINOS];
+	char	buff;
 
 	if (fd == -1)
 		quit(ERROR);
 	i = 0;
-	while(read(fd, &buff, 1))
+	while (read(fd, &buff, 1))
 	{
 		tmp[i] = buff;
 		if (i > MAX_TETROMINOS)
@@ -36,6 +36,6 @@ char    *read_file(int fd) // Lit et stock le fichier dans une string
 
 void	display_tab(char **tab)
 {
-	while(*tab)
+	while (*tab)
 		ft_putendl(*tab++);
 }
