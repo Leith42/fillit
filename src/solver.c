@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 14:32:42 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/09 14:36:50 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en rÃ
 
 	tmp = NULL;
 	y = 0;
+	if (!piece->next)
+		return (tab);
 	while (y < sqrsize)
 	{
 		x = 0;
