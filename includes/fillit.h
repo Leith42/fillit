@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:31:13 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 15:43:19 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 16:57:55 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #define FALSE 0
 #define TRUE 1
-#define MAX_TETROMINOS 545
+#define MAX_TETROMINOS 26 * 21 - 1
 enum	{INVALID_ARGUMENT, ERROR};
 
 typedef struct  s_tetri
