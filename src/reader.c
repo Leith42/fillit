@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 14:10:58 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/09 15:55:58 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char	*read_file(int fd)// Lit et stock le fichier dans une string
 	}
 	tmp[i] = '\0';
 	close(fd);
-	glue(tmp);
+	checkpoints(tmp);
+	checkdieses(tmp);
 	return (ft_strdup(tmp));
 }
 

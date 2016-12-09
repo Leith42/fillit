@@ -6,21 +6,66 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 14:24:33 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/09 16:36:43 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	glue(char *str)
+void	checkpoints(char *str)
 {
-	size_t i;
+	size_t	count;
+	size_t	i;
 
 	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == '.')
+			count++;
+		i++;
+	}
+	if (count % 12 != 0)
+	{
+		return ;
+		quit(ERROR);
+	}
+}
+
+void	checkdieses(char *str)
+{
+	size_t	count;
+	size_t	i;
+
+	i = 0;
+	count = 0;
 	while (str[i])
 	{
 		if (str[i] == '#')
-			glue_checker(i, str);
+			count++;
+		i++;
+	}
+	if (count % 4 != 0)
+	{
+		return ;
+		quit(ERROR);
+	}
+}
+
+void	checkstring(char *str)
+{
+	size_t i;
+	size_t count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == '#' && str[i + 1] != '#' && str[i + 5] != '#')
+		{
+			return ;
+			quit(ERROR);
+		}
 		i++;
 	}
 }
