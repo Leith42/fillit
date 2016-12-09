@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 12:12:33 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 16:14:22 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void glue(char *str)
 {
-	size_t i;
+	int i;
 
+	i = 0;
+	while(str[i] != '#')
+		i++;
+	str = glue_checker(i, str);
+	star_counter(str);
 	i = 0;
 	while(str[i])
 	{
-		if(str[i] == '#')
-			glue_checker(i, str);
+		if(str[i] == '*')
+			str[i] = '#';
 		i++;
 	}
 }

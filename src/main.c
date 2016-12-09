@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:50:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/08 16:51:17 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 13:39:31 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
 	size_t square_size;
 
 	if (argc != 2)
-		quit(INVALID);
+		quit(INVALID_ARGUMENT);
 	read = read_file(open(argv[1], O_RDONLY));
 	square_size = ft_sqroot(tetri_counter(read) * 4);
 	piece = stock_tetri(read); // Stock chaques tetrominos dans une liste

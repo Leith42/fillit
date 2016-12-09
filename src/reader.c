@@ -6,11 +6,26 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 12:07:04 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 16:11:50 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void	star_counter(char *str)
+{
+	int star;
+
+	star = 0;
+	while(*str)
+	{
+		if(*str == '*')
+			star++;
+		str++;
+	}
+	if(star != 4)
+		quit(ERROR);
+}
 
 char    *read_file(int fd) // Lit et stock le fichier dans une string
 {
@@ -30,7 +45,6 @@ char    *read_file(int fd) // Lit et stock le fichier dans une string
 	}
 	tmp[i] = '\0';
 	close(fd);
-	glue(tmp);
 	return (ft_strdup(tmp));
 }
 
