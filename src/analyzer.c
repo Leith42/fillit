@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 16:24:09 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 17:27:15 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_tetri *stock_tetri(char *read) // Separe les tetrominos dans une liste
 		glue(piece->str);
 		piece->letter = letter++;
 		pos += 21;
-		if(!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))))
+		if(!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))) || (read[pos - 1] != '\n' && i > 0))
 			quit(ERROR);
 		piece = piece->next;
 	}
