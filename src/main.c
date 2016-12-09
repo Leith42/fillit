@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:50:01 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/06 14:58:49 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/08 16:51:17 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ int main(int argc, char const *argv[])
 	square_size = ft_sqroot(tetri_counter(read) * 4);
 	piece = stock_tetri(read); // Stock chaques tetrominos dans une liste
 	piece = stock_pos(piece); // Stock la position (forme) des tetrominos dans leurs listes
-	tab = fill_empty(tab, square_size); // Rempli la grille de points
-	tab = solver(tab, piece, square_size); // Algo de résolution
+	while(!tab)
+	{
+		tab = fill_empty(tab, square_size); // Rempli la grille de points
+		tab = solver(tab, piece, square_size); // Algo de résolution
+		square_size++;
+	}
 	display_tab(tab);
-	free(tab);
-	free_tetrominos(piece);
+	free_tetrominos(tab, piece);
 	return (0);
 }

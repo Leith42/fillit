@@ -6,11 +6,24 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/06 12:13:02 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 12:12:33 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void glue(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == '#')
+			glue_checker(i, str);
+		i++;
+	}
+}
 
 t_tetri *tetri_new_position(t_tetri *piece, size_t x, size_t y)
 {

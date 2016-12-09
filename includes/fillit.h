@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:31:13 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/06 17:06:26 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 12:10:55 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ t_tetri	*tetri_new_position(t_tetri *piece, size_t x, size_t y);
 int		tetri_counter(char *read);
 int		position_checker(char **tab, t_tetri *piece, int sqrsize);
 void	display_tab(char **tab);
-void	free_tetrominos(t_tetri *piece);
+void	free_tetrominos(char **tab, t_tetri *piece);
+void	glue(char *str);
+void	glue_checker(size_t i, char *str);
 void	quit(int error);
 
 #endif

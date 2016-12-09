@@ -6,11 +6,18 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/06 14:01:08 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/09 12:13:14 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void glue_checker(size_t i, char *str)
+{
+	if(str[i + 1] == '#' || str[i - 1] == '#' || str[i + 5] == '#' || str[i - 5] == '#')
+		return ;
+	quit(ERROR);
+}
 
 int	position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la position pour le tetromino entrant dans le tableau est prise
 {
@@ -70,25 +77,36 @@ t_tetri *stock_tetri(char *read) // Separe les tetrominos dans une liste
 int tetri_counter(char *read) // Compte le nombre de tetrominos dans le fichier
 {
 	int hash;
+	int	dot;
+	int line;
 
- 	hash = 0;
+	hash = 0;
+	dot = 0;
+	line = 0;
 	while (*read)
 	{
 		if (*read == '#')
 			hash++;
+		else if (*read == '.')
+			dot++;
+		else if (*read == '\n')
+			line++;
+		else
+			quit(ERROR);
 		read++;
 	}
-	if (hash % 4 || hash < 4)
+	if (hash % 4 || hash < 4 || dot % 4 || (line + 1) % 5)
 		quit(ERROR);
 	return (hash / 4);
 }
 
-void free_tetrominos(t_tetri *piece)
+void free_tetrominos(char **tab, t_tetri *piece)
 {
 	t_tetri *list;
 	t_tetri *next;
 
 	list = piece;
+	free(tab);
 	while(list)
 	{
 		next = list->next;
