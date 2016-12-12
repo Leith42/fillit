@@ -25,9 +25,11 @@ SRC			=	$(SRC_PATH)main.c $(SRC_PATH)reader.c \
 
 OBJ			=	$(SRC:.c=.o)
 
-all:
+$(NAME):
 	@make -C $(LIB_PATH)
 	@$(CC) -o $(NAME) $(FLAGS) $(SRC) $(INCLUDES) $(LIB_BIN)
+
+all: $(NAME)
 
 clean:
 	@make -C $(LIB_PATH) clean
