@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 10:53:12 by aazri             #+#    #+#             */
-/*   Updated: 2016/11/16 20:20:39 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/12 14:40:29 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ void	*ft_memalloc(size_t size)
 {
 	void *str;
 
-	str = malloc(size);
-	if (str == NULL)
+	if (!(str = malloc(size)))
 		return (NULL);
-	ft_memset(str, 0, size);
+	ft_memset(str, '\0', size);
 	return (str);
 }
