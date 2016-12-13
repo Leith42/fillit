@@ -6,7 +6,7 @@
 #    By: aazri <aazri@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/06 12:40:11 by aazri             #+#    #+#              #
-#    Updated: 2016/12/09 13:40:10 by aazri            ###   ########.fr        #
+#    Updated: 2016/12/13 16:01:09 by aazri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ SRC			=	$(SRC_PATH)main.c $(SRC_PATH)reader.c \
 
 OBJ			=	$(SRC:.c=.o)
 
-$(NAME):
+$(NAME): $(OBJ)
 	@make -C $(LIB_PATH)
-	@$(CC) -o $(NAME) $(FLAGS) $(SRC) $(INCLUDES) $(LIB_BIN)
+	$(CC) -o $(NAME) $(FLAGS) $(SRC) $(INCLUDES) $(LIB_BIN)
 
 all: $(NAME)
 
