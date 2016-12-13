@@ -6,13 +6,13 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:12:13 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/13 15:40:55 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par des points
+char	**retry(char **tab, char letter, int sqrsize)
 {
 	int x;
 	int y;
@@ -32,7 +32,7 @@ char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par 
 	return (tab);
 }
 
-char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en r√©cursif
+char	**solver(char **tab, t_tetri *piece, int sqr)
 {
 	int		x;
 	int		y;
@@ -42,20 +42,17 @@ char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en r√
 		return (tab);
 	tmp = NULL;
 	y = 0;
-	while (y < sqrsize)
+	while (y < sqr)
 	{
 		x = 0;
-		while (x < sqrsize)
+		while (x < sqr)
 		{
 			piece = tetri_new_position(piece, x, y);
-			if (position_checker(tab, piece, sqrsize))
-			{
-				tmp = fill_tab(tab, piece, sqrsize);
-				tmp = solver(tab, piece->next, sqrsize);
-				if (tmp)
-					return (tmp);
-			}
-			tab = retry(tab, piece->letter, sqrsize);
+			if (position_checker(tab, piece, sqr))
+				tmp = solver(fill_tab(tab, piece, sqr), piece->next, sqr);
+			if (tmp)
+				return (tmp);
+			tab = retry(tab, piece->letter, sqr);
 			x++;
 		}
 		y++;
@@ -63,7 +60,7 @@ char	**solver(char **tab, t_tetri *piece, int sqrsize) // Moteur de l'algo en r√
 	return (NULL);
 }
 
-char	**fill_tab(char **tab, t_tetri *piece, int sqrsize) // Place le tetromino dans le tableau
+char	**fill_tab(char **tab, t_tetri *piece, int sqrsize)
 {
 	int i;
 	int x;
@@ -88,7 +85,7 @@ char	**fill_tab(char **tab, t_tetri *piece, int sqrsize) // Place le tetromino d
 	return (tab);
 }
 
-char	**fill_empty(char **tab, int sqrsize) // Remplis le tableau de points
+char	**fill_empty(char **tab, int sqrsize)
 {
 	int y;
 	int x;

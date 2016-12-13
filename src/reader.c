@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:12:03 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/13 15:23:27 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	star_counter(char *str)
 		quit(ERROR);
 }
 
-char	*read_file(int fd) // Lit et stock le fichier dans une string
+char	*read_file(int fd)
 {
 	size_t	i;
 	char	tmp[MAX_TETROMINOS];

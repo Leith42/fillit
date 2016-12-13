@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   analyzer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmatime <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:11:20 by mmatime          ###   ########.fr       */
+/*   Created: 2016/12/13 15:26:08 by mmatime           #+#    #+#             */
+/*   Updated: 2016/12/13 15:26:10 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*glue_checker(int i, char *str)
 	return (str);
 }
 
-int		position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la position pour le tetromino entrant dans le tableau est prise
+int		position_checker(char **tab, t_tetri *piece, int sqrsize)
 {
 	int check;
 	int x;
@@ -66,7 +66,7 @@ int		position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la
 	return (TRUE);
 }
 
-t_tetri	*stock_tetri(char *read) // Separe les tetrominos dans une liste
+t_tetri	*stock_tetri(char *read)
 {
 	size_t	i;
 	size_t	pos;
@@ -85,7 +85,8 @@ t_tetri	*stock_tetri(char *read) // Separe les tetrominos dans une liste
 		glue(piece->str);
 		piece->letter = letter++;
 		pos += 21;
-		if (!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))) || (read[pos - 1] != '\n' && i > 0))
+		if (!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))) ||
+				(read[pos - 1] != '\n' && i > 0))
 			quit(ERROR);
 		piece = piece->next;
 	}
@@ -93,7 +94,7 @@ t_tetri	*stock_tetri(char *read) // Separe les tetrominos dans une liste
 	return (start);
 }
 
-int		tetri_counter(char *read)// Compte le nombre de tetrominos dans le fichier
+int		tetri_counter(char *read)
 {
 	int hash;
 	int	dot;

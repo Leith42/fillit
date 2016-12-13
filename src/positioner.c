@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:11:49 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/13 15:23:16 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_tetri	*tetri_new_position(t_tetri *piece, size_t x, size_t y)
 	return (piece);
 }
 
-t_tetri	*tetri_initial_position(t_tetri *piece, char **tab) // Stock la position initiale de chaques tetrominos dans leurs maillons respectifs
+t_tetri	*tetri_initial_position(t_tetri *piece, char **tab)
 {
 	size_t	i;
 	size_t	x;
