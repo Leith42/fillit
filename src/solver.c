@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:40:55 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/13 15:44:55 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**solver(char **tab, t_tetri *piece, int sqr)
 		while (x < sqr)
 		{
 			piece = tetri_new_position(piece, x, y);
-			if (position_checker(tab, piece, sqr))
+			if (position_checker(tab, piece, sqr) == TRUE)
 				tmp = solver(fill_tab(tab, piece, sqr), piece->next, sqr);
 			if (tmp)
 				return (tmp);
