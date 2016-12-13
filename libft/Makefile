@@ -6,7 +6,7 @@
 #    By: aazri <aazri@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/17 17:35:54 by aazri             #+#    #+#              #
-#    Updated: 2016/12/04 16:37:27 by aazri            ###   ########.fr        #
+#    Updated: 2016/12/13 16:02:33 by aazri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ ft_strndup.c ft_sqroot.c
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME): libft.h
+$(NAME): $(OBJ) 
 	@$(CC) $(CFLAGS) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
