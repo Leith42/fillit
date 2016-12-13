@@ -6,11 +6,11 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:14:00 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/09 17:54:22 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/13 15:12:13 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 char	**retry(char **tab, char letter, int sqrsize) // Remplace le tetromino par des points
 {

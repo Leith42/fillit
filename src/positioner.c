@@ -6,11 +6,11 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:00:10 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/12 15:05:39 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/13 15:11:49 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 void	glue(char *str)
 {
@@ -78,7 +78,6 @@ t_tetri	*tetri_initial_position(t_tetri *piece, char **tab) // Stock la position
 		}
 		y++;
 	}
-	free (tab);
 	return (piece);
 }
 

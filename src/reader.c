@@ -6,11 +6,11 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/12 17:14:49 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/13 15:12:03 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 void	star_counter(char *str)
 {
@@ -30,7 +30,7 @@ void	star_counter(char *str)
 char	*read_file(int fd) // Lit et stock le fichier dans une string
 {
 	size_t	i;
-	char	str[MAX_TETROMINOS];
+	char	tmp[MAX_TETROMINOS];
 	char	buff;
 
 	if (fd == -1)
@@ -38,22 +38,18 @@ char	*read_file(int fd) // Lit et stock le fichier dans une string
 	i = 0;
 	while (read(fd, &buff, 1))
 	{
-		str[i] = buff;
+		tmp[i] = buff;
 		if (i > MAX_TETROMINOS)
 			quit(ERROR);
 		i++;
 	}
-	str[i] = '\0';
+	tmp[i] = '\0';
 	close(fd);
-	return (ft_strdup(str));
+	return (ft_strdup(tmp));
 }
 
-void	display_fillit(char **tab)
+void	display_tab(char **tab)
 {
 	while (*tab)
-	{
-		ft_putstr(*tab);
-		ft_putchar('\n');
-		tab++;
-	}
+		ft_putendl(*tab++);
 }

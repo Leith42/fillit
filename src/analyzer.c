@@ -6,11 +6,11 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 14:52:34 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/12 16:51:10 by aazri            ###   ########.fr       */
+/*   Updated: 2016/12/13 15:11:20 by mmatime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 char	*glue_checker(int i, char *str)
 {
@@ -66,24 +66,26 @@ int		position_checker(char **tab, t_tetri *piece, int sqrsize) // Vérifie si la
 	return (TRUE);
 }
 
-t_tetri	*stock_tetri(char *read, size_t tetri_nbr)
+t_tetri	*stock_tetri(char *read) // Separe les tetrominos dans une liste
 {
+	size_t	i;
 	size_t	pos;
 	char	letter;
 	t_tetri	*piece;
 	t_tetri	*start;
 
+	i = tetri_counter(read);
 	pos = 0;
 	letter = 'A';
 	piece = (t_tetri *)malloc(sizeof(t_tetri));
 	start = piece;
-	while (tetri_nbr-- > 0)
+	while (i-- > 0)
 	{
 		piece->str = ft_strndup(&read[pos], 20);
+		glue(piece->str);
 		piece->letter = letter++;
 		pos += 21;
-		glue(piece->str);
-		if (!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))) || (read[pos - 1] != '\n' && tetri_nbr > 0))
+		if (!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))) || (read[pos - 1] != '\n' && i > 0))
 			quit(ERROR);
 		piece = piece->next;
 	}
@@ -91,40 +93,39 @@ t_tetri	*stock_tetri(char *read, size_t tetri_nbr)
 	return (start);
 }
 
-int		tetri_counter(char *read)
+int		tetri_counter(char *read)// Compte le nombre de tetrominos dans le fichier
 {
 	int hash;
-	int	empty;
+	int	dot;
 	int line;
 
 	hash = 0;
-	empty = 0;
-	line = 1;
+	dot = 0;
+	line = 0;
 	while (*read)
 	{
 		if (*read == '#')
 			hash++;
 		else if (*read == '.')
-			empty++;
+			dot++;
 		else if (*read == '\n')
 			line++;
 		else
 			quit(ERROR);
 		read++;
 	}
-	if (hash % 4 || hash < 4 || empty % 4 || line % 5)
+	if (hash % 4 || hash < 4 || dot % 4 || (line + 1) % 5)
 		quit(ERROR);
 	return (hash / 4);
 }
 
-void	fill_free(char **tab, t_tetri *piece, char *read)
+void	free_tetrominos(char **tab, t_tetri *piece)
 {
 	t_tetri *list;
 	t_tetri *next;
 
 	list = piece;
 	free(tab);
-	free(read);
 	while (list)
 	{
 		next = list->next;
