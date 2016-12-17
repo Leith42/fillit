@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:29:52 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:23:27 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/17 17:53:16 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	star_counter(char *str)
 char	*read_file(int fd)
 {
 	size_t	i;
-	char	tmp[MAX_TETROMINOS];
+	char	tmp[BUFF_SIZE];
 	char	buff;
 
 	if (fd == -1)
@@ -39,7 +39,7 @@ char	*read_file(int fd)
 	while (read(fd, &buff, 1))
 	{
 		tmp[i] = buff;
-		if (i > MAX_TETROMINOS)
+		if (i > BUFF_SIZE)
 			quit(ERROR);
 		i++;
 	}

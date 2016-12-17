@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   analyzer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmatime <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mmatime <mmatime@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:26:08 by mmatime           #+#    #+#             */
-/*   Updated: 2016/12/13 15:26:10 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/17 17:52:26 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ char	*glue_checker(int i, char *str)
 	{
 		str[i + 5] = '*';
 		str = glue_checker(i + 5, str);
-	}
-	if (str[i - 5] == '#')
-	{
-		str[i - 5] = '*';
-		str = glue_checker(i - 5, str);
 	}
 	return (str);
 }
@@ -85,8 +80,8 @@ t_tetri	*stock_tetri(char *read)
 		glue(piece->str);
 		piece->letter = letter++;
 		pos += 21;
-		if (!(piece->next = (t_tetri *)malloc(sizeof(t_tetri))) ||
-				(read[pos - 1] != '\n' && i > 0))
+		if (!(piece->next = (t_tetri *)malloc(sizeof(t_tetri)))
+		|| (read[pos - 1] != '\n' && i > 0))
 			quit(ERROR);
 		piece = piece->next;
 	}
@@ -102,7 +97,7 @@ int		tetri_counter(char *read)
 
 	hash = 0;
 	dot = 0;
-	line = 0;
+	line = 1;
 	while (*read)
 	{
 		if (*read == '#')
@@ -115,18 +110,19 @@ int		tetri_counter(char *read)
 			quit(ERROR);
 		read++;
 	}
-	if (hash % 4 || hash < 4 || dot % 4 || (line + 1) % 5)
+	if (hash % 4 || hash < 4 || dot % 4 || line % 5)
 		quit(ERROR);
 	return (hash / 4);
 }
 
-void	free_tetrominos(char **tab, t_tetri *piece)
+void	free_tetrominos(char **tab, t_tetri *piece, char *read)
 {
 	t_tetri *list;
 	t_tetri *next;
 
 	list = piece;
 	free(tab);
+	free(read);
 	while (list)
 	{
 		next = list->next;

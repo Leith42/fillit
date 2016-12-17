@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:31:13 by aazri             #+#    #+#             */
-/*   Updated: 2016/12/13 15:10:49 by mmatime          ###   ########.fr       */
+/*   Updated: 2016/12/17 17:23:07 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 # define FALSE 0
 # define TRUE 1
-# define MAX_TETROMINOS 26 * 21 - 1
+# define BUFF_SIZE 26 * 21 - 1
 
-enum	{INVALID_ARGUMENT, ERROR};
+enum	{DISPLAY_USAGE, ERROR};
 
 typedef struct	s_tetri
 {
@@ -45,7 +45,7 @@ t_tetri			*tetri_new_position(t_tetri *piece, size_t x, size_t y);
 int				tetri_counter(char *read);
 int				position_checker(char **tab, t_tetri *piece, int sqrsize);
 void			display_tab(char **tab);
-void			free_tetrominos(char **tab, t_tetri *piece);
+void			free_tetrominos(char **tab, t_tetri *piece, char *read);
 void			star_counter(char *str);
 void			glue(char *str);
 char			*glue_checker(int i, char *str);

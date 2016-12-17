@@ -6,7 +6,7 @@
 #    By: aazri <aazri@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/06 12:40:11 by aazri             #+#    #+#              #
-#    Updated: 2016/12/13 16:01:09 by aazri            ###   ########.fr        #
+#    Updated: 2016/12/15 10:33:48 by aazri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ			=	$(SRC:.c=.o)
 
 $(NAME): $(OBJ)
 	@make -C $(LIB_PATH)
-	$(CC) -o $(NAME) $(FLAGS) $(SRC) $(INCLUDES) $(LIB_BIN)
+	$(CC) -o $(NAME) $(SRC) $(INCLUDES) $(LIB_BIN)
 
 all: $(NAME)
 
